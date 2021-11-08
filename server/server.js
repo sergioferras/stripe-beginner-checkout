@@ -1,4 +1,10 @@
-require('dotenv').config();
+console.log(`Your port is ${process.env.PORT}`); // undefined
+const dotenv = require("dotenv");
+dotenv.config();
+console.log(`Your port is ${process.env.PORT}`);
+
+const PORT = process.env.PORT || 4242;
+
 const express = require("express");
 const app = express();
 const path = require('path');
@@ -155,4 +161,4 @@ app.post("/webhook", async (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(4242, () => console.log(`Node server listening at http://localhost:${4242}/`));
+//app.listen(PORT, () => console.log(`Node server listening at http://localhost:${PORT}/`));
